@@ -1,0 +1,30 @@
+type ProgressionInfo{
+    progressionId : Int
+    gameId : Int
+    progressionName : String
+}
+
+type ProgressionMatchExpiryInfo{
+    matchId : Int
+    progressionId : Int
+    matchName : String
+    startDate : String
+    endDate : String
+}
+
+type Query{
+    getAllProgressionInfo:[ProgressionInfo]
+    getProgressionInfo(progressionId : Int):ProgressionInfo
+
+    getAllProgressionMatchExpiryInfo : [ProgressionMatchExpiryInfo]
+    getProgressionMatchExpiryInfo(matchId : Int) : ProgressionMatchExpiryInfo
+
+    getMatchByProgressionName(progressionName : String) : [ProgressionMatchExpiryInfo]
+    getMatchStatus(matchName : String) : String
+}
+
+type Mutation{
+    createProgressionInfo(progressionId : Int, gameId : Int, progressionName : String) : ProgressionInfo
+    createProgressionMatchExpiryInfo(matchId : Int, progressionId : Int, matchName : String, startDate : String, endDate : String) : ProgressionMatchExpiryInfo
+}
+
